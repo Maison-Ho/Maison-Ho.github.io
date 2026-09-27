@@ -6,21 +6,23 @@
   <title>何處 Maison-Ho | 何柏儒 PO-JU HO — Art, Curation & Spatial Practice</title>
   <style>
     :root {
-      /* Minimalist Grey & Sage Green Palette */
-      --bg-base: #131615;
-      --bg-surface: #181c1a;
-      --card-bg: rgba(255, 255, 255, 0.035);
-      --card-border: rgba(162, 184, 165, 0.14);
-      --card-border-hover: rgba(162, 184, 165, 0.35);
+      /* Bright Minimalist Alabaster & Sage Green Palette */
+      --bg-base: #f9faf9;
+      --bg-surface: #ffffff;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --card-border: rgba(56, 82, 60, 0.12);
+      --card-border-hover: rgba(56, 82, 60, 0.35);
       
-      --text-main: #f0f2f0;
-      --text-sub: #c6ccc6;
-      --text-muted: #858f86;
+      --text-main: #1d231e;
+      --text-sub: #455047;
+      --text-muted: #727e74;
       
-      --sage-accent: #a3bda6;
-      --sage-soft: #859a87;
-      --sage-tag-bg: rgba(142, 168, 145, 0.08);
-      --active-tab-bg: rgba(163, 189, 166, 0.18);
+      --sage-primary: #2d4532;
+      --sage-accent: #48694f;
+      --sage-soft: #5b7561;
+      --sage-tag-bg: rgba(72, 105, 79, 0.07);
+      --active-tab-bg: #2d4532;
+      --active-tab-text: #ffffff;
     }
     * {
       box-sizing: border-box;
@@ -58,13 +60,13 @@
     }
     .brand-title .zh-name {
       font-size: 2.1rem;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       color: var(--text-main);
     }
     .brand-title .en-name {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-weight: 400;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       color: var(--sage-accent);
       text-transform: uppercase;
     }
@@ -82,12 +84,14 @@
       border-radius: 14px;
       background: var(--card-bg);
       overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      transition: border-color 0.25s ease;
+      transition: all 0.25s ease;
     }
     details.collapse-section[open] {
-      border-color: rgba(162, 184, 165, 0.28);
+      border-color: rgba(56, 82, 60, 0.24);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
     }
 
     /* Collapsible Summary Header */
@@ -100,14 +104,15 @@
       align-items: center;
       user-select: none;
       outline: none;
+      background: rgba(255, 255, 255, 0.5);
     }
     summary.collapse-title::-webkit-details-marker {
       display: none;
     }
     .title-text {
       font-size: 0.92rem;
-      font-weight: 500;
-      color: var(--sage-accent);
+      font-weight: 600;
+      color: var(--sage-primary);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       display: flex;
@@ -127,17 +132,18 @@
 
     /* Section Body */
     .collapse-content {
-      padding: 4px 20px 24px;
-      border-top: 1px solid rgba(162, 184, 165, 0.08);
+      padding: 6px 20px 24px;
+      border-top: 1px solid rgba(56, 82, 60, 0.08);
+      background: #ffffff;
     }
 
     /* Statement Text */
     .statement-text {
-      font-size: 0.94rem;
+      font-size: 0.95rem;
       color: var(--text-sub);
-      line-height: 1.8;
+      line-height: 1.85;
       text-align: justify;
-      margin-top: 12px;
+      margin-top: 14px;
     }
     .statement-text p {
       margin-bottom: 12px;
@@ -146,8 +152,8 @@
       margin-bottom: 0;
     }
     .statement-text strong {
-      color: var(--text-main);
-      font-weight: 500;
+      color: var(--sage-primary);
+      font-weight: 600;
     }
 
     /* Profile & Education */
@@ -156,19 +162,21 @@
       justify-content: space-between;
       align-items: baseline;
       flex-wrap: wrap;
-      margin-top: 8px;
+      margin-top: 10px;
       margin-bottom: 12px;
       border-bottom: 1px solid var(--card-border);
       padding-bottom: 10px;
     }
     .profile-name {
       font-size: 1.25rem;
-      font-weight: 500;
+      font-weight: 600;
+      color: var(--text-main);
     }
     .profile-name span {
       font-size: 0.9rem;
       color: var(--sage-soft);
       margin-left: 8px;
+      font-weight: 400;
     }
     .edu-list {
       list-style: none;
@@ -191,15 +199,16 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 10px;
+      margin-top: 12px;
     }
     .tag {
       background: var(--sage-tag-bg);
-      border: 1px solid var(--card-border);
+      border: 1px solid rgba(72, 105, 79, 0.15);
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 0.85rem;
-      color: var(--text-sub);
+      color: var(--sage-primary);
+      font-weight: 450;
     }
 
     /* Publications */
@@ -207,22 +216,23 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 14px;
-      margin-top: 10px;
+      margin-top: 14px;
     }
     .pub-card {
-      background: rgba(255, 255, 255, 0.02);
+      background: #fafbfa;
       border: 1px solid var(--card-border);
       border-radius: 10px;
       padding: 16px;
     }
     .pub-card h4 {
       font-size: 0.96rem;
-      color: var(--text-main);
+      font-weight: 600;
+      color: var(--sage-primary);
       margin-bottom: 6px;
     }
     .pub-card p {
       font-size: 0.86rem;
-      color: var(--text-muted);
+      color: var(--text-sub);
       line-height: 1.6;
     }
 
@@ -231,15 +241,15 @@
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      padding-top: 8px;
+      padding-top: 12px;
       padding-bottom: 12px;
       margin-bottom: 18px;
       -webkit-overflow-scrolling: touch;
     }
     .filter-btn {
       background: var(--sage-tag-bg);
-      border: 1px solid var(--card-border);
-      color: var(--text-muted);
+      border: 1px solid rgba(72, 105, 79, 0.16);
+      color: var(--text-sub);
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 0.82rem;
@@ -249,8 +259,8 @@
     }
     .filter-btn.active {
       background: var(--active-tab-bg);
-      color: var(--sage-accent);
-      border-color: var(--sage-accent);
+      color: var(--active-tab-text);
+      border-color: var(--active-tab-bg);
     }
 
     /* Timeline & List Items */
@@ -261,7 +271,7 @@
     }
     .timeline-item {
       padding: 18px 20px;
-      background: rgba(255, 255, 255, 0.02);
+      background: #fafbfa;
       border: 1px solid var(--card-border);
       border-radius: 10px;
     }
@@ -278,25 +288,27 @@
       font-size: 0.82rem;
       font-family: monospace;
       color: var(--sage-soft);
+      font-weight: 600;
       letter-spacing: 0.05em;
     }
     .timeline-badge {
       font-size: 0.74rem;
-      color: var(--text-muted);
-      border: 1px solid var(--card-border);
+      color: var(--sage-primary);
+      background: var(--sage-tag-bg);
+      border: 1px solid rgba(72, 105, 79, 0.15);
       padding: 2px 8px;
       border-radius: 12px;
     }
     .timeline-role {
       font-size: 1rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-main);
       margin-bottom: 6px;
     }
     .timeline-desc {
-      font-size: 0.88rem;
+      font-size: 0.89rem;
       color: var(--text-sub);
-      line-height: 1.68;
+      line-height: 1.7;
     }
     .timeline-desc ul {
       list-style: none;
@@ -319,14 +331,14 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 10px;
-      margin-top: 10px;
+      margin-top: 14px;
     }
     .inst-card {
-      background: rgba(255, 255, 255, 0.02);
+      background: #fafbfa;
       border: 1px solid var(--card-border);
-      padding: 10px 12px;
+      padding: 11px 12px;
       border-radius: 8px;
-      font-size: 0.84rem;
+      font-size: 0.85rem;
       color: var(--text-sub);
       text-align: center;
     }
@@ -342,17 +354,19 @@
     .contact-btn {
       display: inline-block;
       margin-bottom: 20px;
-      color: var(--text-main);
+      color: var(--sage-primary);
       text-decoration: none;
-      border: 1px solid var(--card-border-hover);
-      background: var(--sage-tag-bg);
-      padding: 10px 26px;
+      border: 1px solid rgba(56, 82, 60, 0.25);
+      background: #ffffff;
+      padding: 10px 28px;
       border-radius: 24px;
+      font-weight: 500;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
       transition: all 0.2s ease;
     }
     .contact-btn:hover {
-      border-color: var(--sage-accent);
-      color: var(--sage-accent);
+      border-color: var(--sage-primary);
+      background: var(--sage-tag-bg);
     }
   </style>
 </head>
