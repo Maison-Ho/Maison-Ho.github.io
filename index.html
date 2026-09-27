@@ -3,18 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maison-Ho | 何柏儒 PO-JU HO — Art, Curation & Spatial Practice</title>
+  <title>何處 Maison-Ho | 何柏儒 PO-JU HO — Art, Curation & Spatial Practice</title>
   <style>
     :root {
-      --bg: #0a0c10;
-      --card-bg: rgba(255, 255, 255, 0.025);
-      --card-border: rgba(255, 255, 255, 0.07);
-      --text-main: #f5f6f8;
-      --text-sub: #c5cbd5;
-      --text-muted: #7e8794;
-      --accent: #ffffff;
-      --tag-bg: rgba(255, 255, 255, 0.05);
-      --active-tab: rgba(255, 255, 255, 0.12);
+      /* Minimalist Grey & Sage Green Palette */
+      --bg-base: #131615;
+      --bg-surface: #181c1a;
+      --card-bg: rgba(255, 255, 255, 0.035);
+      --card-border: rgba(162, 184, 165, 0.14);
+      --card-border-hover: rgba(162, 184, 165, 0.35);
+      
+      --text-main: #f0f2f0;
+      --text-sub: #c6ccc6;
+      --text-muted: #858f86;
+      
+      --sage-accent: #a3bda6;
+      --sage-soft: #859a87;
+      --sage-tag-bg: rgba(142, 168, 145, 0.08);
+      --active-tab-bg: rgba(163, 189, 166, 0.18);
     }
     * {
       box-sizing: border-box;
@@ -23,10 +29,10 @@
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
-      background-color: var(--bg);
+      background-color: var(--bg-base);
       color: var(--text-main);
-      padding: 36px 18px 60px;
-      line-height: 1.75;
+      padding: 40px 20px 64px;
+      line-height: 1.8;
       letter-spacing: 0.02em;
       -webkit-font-smoothing: antialiased;
     }
@@ -37,35 +43,50 @@
 
     /* Header */
     header {
-      padding-bottom: 32px;
+      padding-bottom: 34px;
       border-bottom: 1px solid var(--card-border);
-      margin-bottom: 36px;
+      margin-bottom: 38px;
     }
     .brand-title {
       font-size: 2.1rem;
       font-weight: 500;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .brand-title .zh-name {
+      font-size: 2.1rem;
+      letter-spacing: 0.05em;
+      color: var(--text-main);
+    }
+    .brand-title .en-name {
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--sage-accent);
       text-transform: uppercase;
     }
     .brand-sub {
       color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-top: 6px;
-      letter-spacing: 0.04em;
+      font-size: 0.94rem;
+      margin-top: 8px;
+      letter-spacing: 0.05em;
     }
 
-    /* Founder Statement */
+    /* Founder Philosophy */
     .statement-box {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 16px;
-      padding: 24px 20px;
-      margin-bottom: 44px;
+      padding: 26px 22px;
+      margin-bottom: 48px;
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
     .statement-box p {
-      font-size: 0.94rem;
+      font-size: 0.95rem;
       color: var(--text-sub);
       margin-bottom: 14px;
       text-align: justify;
@@ -73,17 +94,21 @@
     .statement-box p:last-child {
       margin-bottom: 0;
     }
+    .statement-box strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
 
     /* Section Styles */
     section {
-      margin-bottom: 52px;
+      margin-bottom: 54px;
     }
     .section-title {
       font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: var(--text-muted);
-      margin-bottom: 20px;
+      color: var(--sage-soft);
+      margin-bottom: 22px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -100,7 +125,7 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 14px;
-      padding: 20px;
+      padding: 22px;
     }
     .profile-header {
       display: flex;
@@ -117,23 +142,23 @@
     }
     .profile-name span {
       font-size: 0.9rem;
-      color: var(--text-muted);
+      color: var(--sage-soft);
       margin-left: 8px;
     }
     .edu-list {
       list-style: none;
     }
     .edu-list li {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: var(--text-sub);
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-top: 4px;
+      margin-top: 5px;
     }
     .edu-list li::before {
       content: "•";
-      color: var(--text-muted);
+      color: var(--sage-soft);
     }
 
     /* Tags */
@@ -143,11 +168,11 @@
       gap: 8px;
     }
     .tag {
-      background: var(--tag-bg);
+      background: var(--sage-tag-bg);
       border: 1px solid var(--card-border);
-      padding: 5px 12px;
-      border-radius: 18px;
-      font-size: 0.84rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
       color: var(--text-sub);
     }
 
@@ -157,40 +182,43 @@
       gap: 8px;
       overflow-x: auto;
       padding-bottom: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       -webkit-overflow-scrolling: touch;
     }
     .filter-btn {
-      background: var(--tag-bg);
+      background: var(--sage-tag-bg);
       border: 1px solid var(--card-border);
       color: var(--text-muted);
-      padding: 6px 14px;
+      padding: 7px 16px;
       border-radius: 20px;
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.2s ease;
     }
     .filter-btn.active {
-      background: var(--active-tab);
-      color: var(--text-main);
-      border-color: rgba(255, 255, 255, 0.3);
+      background: var(--active-tab-bg);
+      color: var(--sage-accent);
+      border-color: var(--sage-accent);
     }
 
     /* Timeline & List Items */
     .timeline {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 16px;
     }
     .timeline-item {
-      padding: 18px 20px;
+      padding: 20px 22px;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 12px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       transition: border-color 0.2s ease;
+    }
+    .timeline-item:hover {
+      border-color: var(--card-border-hover);
     }
     .timeline-item.hidden {
       display: none;
@@ -199,38 +227,38 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .timeline-year {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-family: monospace;
-      color: var(--text-muted);
+      color: var(--sage-soft);
       letter-spacing: 0.05em;
     }
     .timeline-badge {
-      font-size: 0.75rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
       border: 1px solid var(--card-border);
-      padding: 2px 8px;
-      border-radius: 10px;
+      padding: 2px 9px;
+      border-radius: 12px;
     }
     .timeline-role {
-      font-size: 1rem;
+      font-size: 1.02rem;
       font-weight: 500;
       color: var(--text-main);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     .timeline-desc {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--text-sub);
-      line-height: 1.6;
+      line-height: 1.68;
     }
     .timeline-desc ul {
       list-style: none;
       padding-left: 0;
     }
     .timeline-desc li {
-      margin-top: 3px;
+      margin-top: 4px;
       position: relative;
       padding-left: 14px;
     }
@@ -238,30 +266,30 @@
       content: "–";
       position: absolute;
       left: 0;
-      color: var(--text-muted);
+      color: var(--sage-soft);
     }
 
-    /* Publications / Feature Cards */
+    /* Publications */
     .pub-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
+      gap: 16px;
     }
     .pub-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 12px;
-      padding: 18px;
+      padding: 20px;
     }
     .pub-card h4 {
-      font-size: 0.96rem;
+      font-size: 0.98rem;
       color: var(--text-main);
       margin-bottom: 6px;
     }
     .pub-card p {
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     /* Institutional Badges */
@@ -273,9 +301,9 @@
     .inst-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      padding: 10px 12px;
+      padding: 11px 14px;
       border-radius: 8px;
-      font-size: 0.84rem;
+      font-size: 0.85rem;
       color: var(--text-sub);
       text-align: center;
     }
@@ -283,47 +311,56 @@
     /* Footer */
     footer {
       border-top: 1px solid var(--card-border);
-      padding: 36px 0 20px;
+      padding: 40px 0 24px;
       text-align: center;
       color: var(--text-muted);
       font-size: 0.85rem;
     }
     .contact-btn {
       display: inline-block;
-      margin-bottom: 18px;
-      color: var(--accent);
+      margin-bottom: 20px;
+      color: var(--text-main);
       text-decoration: none;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 9px 24px;
+      border: 1px solid var(--card-border-hover);
+      background: var(--sage-tag-bg);
+      padding: 10px 26px;
       border-radius: 24px;
       transition: all 0.2s ease;
+    }
+    .contact-btn:hover {
+      border-color: var(--sage-accent);
+      color: var(--sage-accent);
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
+    <!-- Header with 何處 Maison-Ho -->
     <header>
-      <h1 class="brand-title">Maison-Ho</h1>
-      <p class="brand-sub">Art Management, Curation & Spatial Practice</p>
+      <div class="brand-title">
+        <span class="zh-name">何處</span>
+        <span class="en-name">Maison-Ho</span>
+      </div>
+      <p class="brand-sub">Art Management, Curation & Spatial Practice ｜ 藝術管理・策展實踐・空間構築</p>
     </header>
 
     <!-- Founder Philosophy -->
     <div class="statement-box">
       <p>
-        <strong>Maison-Ho</strong> 由獨立策展人何柏儒創立。長年深耕當代藝術、展覽統籌與空間跨界實踐。曾歷練於商業畫廊、培育新生代藝術創作者之藝術空間與學術研究型藝文機構，歷任空間負責人與行政經理，負責國內外藝術博覽會籌備、大型展覽統籌、公共藝術與專案執行。
+        <strong>何處 Maison-Ho</strong> 由獨立策展人何柏儒創立。長年深耕當代藝術、展覽統籌與空間跨界實踐。曾歷練於商業畫廊、培育新生代藝術創作者之藝術空間與學術研究型藝文機構，歷任空間負責人與行政經理，負責國內外藝術博覽會籌備、大型展覽統籌、公共藝術與專案執行。
       </p>
       <p>
         近年嘗試從藝術、文化與城市地景的多維視角出發，深耕在地文化肌理、公共藝術裝置、街區走讀統籌與跨館際專案合作，在虛實語境與社群時代中，致力突破既有框架，創造藝術與公眾相遇的深刻場域。
       </p>
     </div>
 
-    <!-- About & Education -->
+    <!-- Profile & Education -->
     <section>
-      <div class="section-title">Profile & Education</div>
+      <div class="section-title">Profile & Education 個人簡歷</div>
       <div class="profile-card">
         <div class="profile-header">
           <div class="profile-name">何柏儒 <span>Po-Ju Ho</span></div>
-          <span style="font-size: 0.84rem; color: var(--text-muted);">獨立策展人 / 專案統籌</span>
+          <span style="font-size: 0.84rem; color: var(--sage-soft);">獨立策展人 / 專案統籌</span>
         </div>
         <ul class="edu-list">
           <li>東海大學建築研究所</li>
@@ -334,7 +371,7 @@
 
     <!-- Core Competencies -->
     <section>
-      <div class="section-title">Core Expertise</div>
+      <div class="section-title">Core Expertise 核心專長</div>
       <div class="tag-container">
         <span class="tag">藝術管理與統籌</span>
         <span class="tag">策展實踐</span>
@@ -579,8 +616,8 @@
     <!-- Contact & Footer -->
     <footer>
       <p style="margin-bottom: 14px;">展覽策劃・專案統籌・空間設計・文化走讀・跨領域合作</p>
-      <a href="mailto:your-email@example.com" class="contact-btn">聯繫 Maison-Ho</a>
-      <p style="font-size: 0.75rem; color: #505663;">© Maison-Ho. All rights reserved.</p>
+      <a href="mailto:your-email@example.com" class="contact-btn">聯繫 何處 Maison-Ho</a>
+      <p style="font-size: 0.75rem; color: var(--text-muted);">© 何處 Maison-Ho. All rights reserved.</p>
     </footer>
   </div>
 
