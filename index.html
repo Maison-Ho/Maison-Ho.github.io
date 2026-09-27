@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison-Ho — Art & Design Studio</title>
+  <style>
+    :root {
+      --bg: #0c0e12;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f4f5f7;
+      --text-muted: #8b929e;
+      --accent: #ffffff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      padding: 32px 20px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    header {
+      padding: 40px 0 32px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 40px;
+    }
+    .brand-title {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+    .brand-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 8px;
+      letter-spacing: 0.02em;
+    }
+    .intro {
+      font-size: 1.05rem;
+      color: #cdd2db;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .card-img-placeholder {
+      width: 100%;
+      height: 220px;
+      background: #161920;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .card-body {
+      padding: 16px 18px;
+    }
+    .card-body h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .card-body p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 32px 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    .contact-link {
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 24px;
+      border-radius: 24px;
+      transition: background 0.2s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1 class="brand-title">Maison-Ho</h1>
+      <p class="brand-sub">Art, Form & Spatial Design</p>
+    </header>
+
+    <p class="intro">
+      An independent practice exploring visual identity, object forms, and quiet compositions.
+    </p>
+
+    <main class="gallery">
+      <!-- Project 01 -->
+      <div class="card">
+        <div class="card-img-placeholder">Project 01 Artwork</div>
+        <div class="card-body">
+          <h3>Visual Study I</h3>
+          <p>Concept & Editorial Direction</p>
+        </div>
+      </div>
+
+      <!-- Project 02 -->
+      <div class="card">
+        <div class="card-img-placeholder">Project 02 Artwork</div>
+        <div class="card-body">
+          <h3>Spatial Archive</h3>
+          <p>Exhibition & Object Form</p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Available for select commissions and collaborations.</p>
+      <a href="mailto:contact@maison-ho.com" class="contact-link">Inquire</a>
+      <p style="font-size: 0.75rem; color: #505663;">© Maison-Ho. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
