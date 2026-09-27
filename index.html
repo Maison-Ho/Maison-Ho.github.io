@@ -6,14 +6,15 @@
   <title>Maison-Ho | 何柏儒 PO-JU HO — Art, Curation & Spatial Practice</title>
   <style>
     :root {
-      --bg: #0b0d11;
-      --card-bg: rgba(255, 255, 255, 0.03);
-      --card-border: rgba(255, 255, 255, 0.08);
+      --bg: #0a0c10;
+      --card-bg: rgba(255, 255, 255, 0.025);
+      --card-border: rgba(255, 255, 255, 0.07);
       --text-main: #f5f6f8;
       --text-sub: #c5cbd5;
-      --text-muted: #828a97;
+      --text-muted: #7e8794;
       --accent: #ffffff;
       --tag-bg: rgba(255, 255, 255, 0.05);
+      --active-tab: rgba(255, 255, 255, 0.12);
     }
     * {
       box-sizing: border-box;
@@ -24,21 +25,21 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
       background-color: var(--bg);
       color: var(--text-main);
-      padding: 36px 20px 48px;
+      padding: 36px 18px 60px;
       line-height: 1.75;
       letter-spacing: 0.02em;
       -webkit-font-smoothing: antialiased;
     }
     .wrapper {
-      max-width: 840px;
+      max-width: 860px;
       margin: 0 auto;
     }
-    
+
     /* Header */
     header {
       padding-bottom: 32px;
       border-bottom: 1px solid var(--card-border);
-      margin-bottom: 44px;
+      margin-bottom: 36px;
     }
     .brand-title {
       font-size: 2.1rem;
@@ -58,15 +59,15 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 16px;
-      padding: 26px 22px;
-      margin-bottom: 48px;
+      padding: 24px 20px;
+      margin-bottom: 44px;
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
     .statement-box p {
-      font-size: 0.96rem;
+      font-size: 0.94rem;
       color: var(--text-sub);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       text-align: justify;
     }
     .statement-box p:last-child {
@@ -82,7 +83,7 @@
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--text-muted);
-      margin-bottom: 22px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -94,37 +95,36 @@
       background: var(--card-border);
     }
 
-    /* Bio & Education Card */
+    /* Profile & Education */
     .profile-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 14px;
-      padding: 22px;
+      padding: 20px;
     }
     .profile-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       flex-wrap: wrap;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       border-bottom: 1px solid var(--card-border);
-      padding-bottom: 12px;
+      padding-bottom: 10px;
     }
     .profile-name {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 500;
     }
     .profile-name span {
       font-size: 0.9rem;
       color: var(--text-muted);
       margin-left: 8px;
-      font-weight: 400;
     }
     .edu-list {
       list-style: none;
     }
     .edu-list li {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: var(--text-sub);
       display: flex;
       align-items: center;
@@ -136,66 +136,146 @@
       color: var(--text-muted);
     }
 
-    /* Expertise Tags */
+    /* Tags */
     .tag-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
     .tag {
       background: var(--tag-bg);
       border: 1px solid var(--card-border);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.86rem;
+      padding: 5px 12px;
+      border-radius: 18px;
+      font-size: 0.84rem;
       color: var(--text-sub);
     }
 
-    /* Timeline & Archives */
+    /* Filter Tabs */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .filter-btn {
+      background: var(--tag-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .filter-btn.active {
+      background: var(--active-tab);
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Timeline & List Items */
     .timeline {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
     .timeline-item {
-      padding: 20px;
+      padding: 18px 20px;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 12px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
+      transition: border-color 0.2s ease;
+    }
+    .timeline-item.hidden {
+      display: none;
+    }
+    .timeline-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
     }
     .timeline-year {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-family: monospace;
       color: var(--text-muted);
-      letter-spacing: 0.06em;
-      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+    }
+    .timeline-badge {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border: 1px solid var(--card-border);
+      padding: 2px 8px;
+      border-radius: 10px;
     }
     .timeline-role {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 500;
       color: var(--text-main);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .timeline-desc {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-sub);
-      line-height: 1.65;
+      line-height: 1.6;
+    }
+    .timeline-desc ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .timeline-desc li {
+      margin-top: 3px;
+      position: relative;
+      padding-left: 14px;
+    }
+    .timeline-desc li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
     }
 
-    /* Institutional Collaboration Badges */
+    /* Publications / Feature Cards */
+    .pub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .pub-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .pub-card h4 {
+      font-size: 0.96rem;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .pub-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Institutional Badges */
     .institutions-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 10px;
     }
     .inst-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      padding: 12px 14px;
+      padding: 10px 12px;
       border-radius: 8px;
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       color: var(--text-sub);
       text-align: center;
     }
@@ -203,18 +283,18 @@
     /* Footer */
     footer {
       border-top: 1px solid var(--card-border);
-      padding: 40px 0 24px;
+      padding: 36px 0 20px;
       text-align: center;
       color: var(--text-muted);
       font-size: 0.85rem;
     }
     .contact-btn {
       display: inline-block;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       color: var(--accent);
       text-decoration: none;
       border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 10px 26px;
+      padding: 9px 24px;
       border-radius: 24px;
       transition: all 0.2s ease;
     }
@@ -227,23 +307,23 @@
       <p class="brand-sub">Art Management, Curation & Spatial Practice</p>
     </header>
 
-    <!-- Founder Philosophy & Intro -->
+    <!-- Founder Philosophy -->
     <div class="statement-box">
       <p>
-        <strong>Maison-Ho</strong> 由獨立策展人何柏儒創立。作為藝術與在地文化探索者，長年深耕當代藝術、展覽統籌與空間跨界實踐。曾歷練於商業畫廊、培育新生代藝術創作者之替代空間及學術研究型藝文機構，歷任空間負責人與行政經理，負責國內外藝術博覽會籌備、大型展覽統籌與專案執行。
+        <strong>Maison-Ho</strong> 由獨立策展人何柏儒創立。長年深耕當代藝術、展覽統籌與空間跨界實踐。曾歷練於商業畫廊、培育新生代藝術創作者之藝術空間與學術研究型藝文機構，歷任空間負責人與行政經理，負責國內外藝術博覽會籌備、大型展覽統籌、公共藝術與專案執行。
       </p>
       <p>
-        從藝術視野出發，持續突破既有框架，從行政統籌、展演執行到媒體策略，陪伴藝術家實踐前瞻性創作。近年深耕在地文化肌理，串聯地方美學、公共藝術、街區導覽與跨館際合作，在虛實與當代社群語境中，創造藝術與公眾相遇的深刻場域。
+        近年嘗試從藝術、文化與城市地景的多維視角出發，深耕在地文化肌理、公共藝術裝置、街區走讀統籌與跨館際專案合作，在虛實語境與社群時代中，致力突破既有框架，創造藝術與公眾相遇的深刻場域。
       </p>
     </div>
 
     <!-- About & Education -->
     <section>
-      <div class="section-title">Founder Profile & Education</div>
+      <div class="section-title">Profile & Education</div>
       <div class="profile-card">
         <div class="profile-header">
           <div class="profile-name">何柏儒 <span>Po-Ju Ho</span></div>
-          <span style="font-size: 0.85rem; color: var(--text-muted);">獨立策展人 / 專案統籌</span>
+          <span style="font-size: 0.84rem; color: var(--text-muted);">獨立策展人 / 專案統籌</span>
         </div>
         <ul class="edu-list">
           <li>東海大學建築研究所</li>
@@ -259,87 +339,218 @@
         <span class="tag">藝術管理與統籌</span>
         <span class="tag">策展實踐</span>
         <span class="tag">展覽執行</span>
-        <span class="tag">空間與光環境規劃</span>
         <span class="tag">攝影紀實</span>
+        <span class="tag">空間與光環境規劃</span>
         <span class="tag">公關媒體策略</span>
-        <span class="tag">街區文化走讀</span>
-        <span class="tag">跨館際專案協調</span>
+        <span class="tag">文化走讀導覽</span>
+        <span class="tag">跨館際專案統籌</span>
       </div>
     </section>
 
-    <!-- Curatorial & Project Timeline -->
+    <!-- Publications & Essays -->
     <section>
-      <div class="section-title">Selected Projects & Curatorial Practice</div>
+      <div class="section-title">Writing & Publications 專文與專書</div>
+      <div class="pub-grid">
+        <div class="pub-card">
+          <h4>《閱：文學》第七十四期</h4>
+          <p>2022 年 3 月｜「另外一種文學」專欄《徘徊、迷路，還在路上–更名者遊途》專文撰寫。</p>
+        </div>
+        <div class="pub-card">
+          <h4>《回歸線》Vol.004</h4>
+          <p>採談專文｜《當藝術與設計在廣場相遇—台灣設計展 v.s 嘉美館 》。</p>
+        </div>
+        <div class="pub-card">
+          <h4>《新活水》雜誌專題攝影</h4>
+          <p>Issue 52「巷仔內都知道」、Issue 50「虎虎生風的虎爺」、Issue 49「嘉義輪普」等專題攝影。</p>
+        </div>
+        <div class="pub-card">
+          <h4>《非常時期 1997 - 2017》</h4>
+          <p>非常廟藝文空間 20 週年出版品專書編輯。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filterable Timeline -->
+    <section>
+      <div class="section-title">Chronology & Archive 歷年經歷與專案</div>
+      
+      <!-- Filter Tabs -->
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterItems('all')">全部 All</button>
+        <button class="filter-btn" onclick="filterItems('curate')">策展與專案統籌</button>
+        <button class="filter-btn" onclick="filterItems('exhibit')">展覽協力與創作</button>
+        <button class="filter-btn" onclick="filterItems('lecture')">講座、研習與導覽</button>
+      </div>
+
       <div class="timeline">
 
-        <div class="timeline-item">
-          <div class="timeline-year">2024 – 2025</div>
-          <div class="timeline-role">台北當代藝術博覽會 Taipei Dangdai Art and Ideas</div>
-          <div class="timeline-desc">UBS 貴賓導覽員</div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-year">2023 – 2024</div>
-          <div class="timeline-role">嘉義城市美學策展與文化走讀</div>
+        <!-- 2026 -->
+        <div class="timeline-item" data-cat="lecture">
+          <div class="timeline-meta">
+            <span class="timeline-year">2026</span>
+            <span class="timeline-badge">講座 / 導覽 / 攝影</span>
+          </div>
+          <div class="timeline-role">教育研習、藝術節走讀與專題攝影</div>
           <div class="timeline-desc">
-            ・2024「嘉義美物圖鑑 LOST & FOUND」規劃街區走讀統籌<br>
-            ・2023「嘉義美街圖鑑 LOST & FOUND」規劃街區走讀統籌<br>
-            ・「來嘉出走－嘉義市城市圖書館群」專案經理、策展人（圖書館改造計畫與系列展覽）
+            <ul>
+              <li>教育部國教署高級中等學校美術學科中心「114學年度南區教師專業成長研習–城市記憶．空間美學」｜講師</li>
+              <li>嘉義市立美術館「走讀話都｜尋找畫都藝術家的色彩足跡」嘉義市藝術節活動｜講師</li>
+              <li>《新活水｜issue 52｜我家的巷口好（像很好玩）》｜「巷仔內都知道」專題攝影</li>
+            </ul>
           </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-year">2022</div>
-          <div class="timeline-role">馬祖國際藝術島 & 地方大型節慶</div>
+        <!-- 2025 -->
+        <div class="timeline-item" data-cat="curate">
+          <div class="timeline-meta">
+            <span class="timeline-year">2025</span>
+            <span class="timeline-badge">策展 / 統籌</span>
+          </div>
+          <div class="timeline-role">城市願景館、古蹟日與國際博覽會</div>
           <div class="timeline-desc">
-            ・馬祖國際藝術島「地下工事」策展專案經理<br>
-            ・嘉義市政府「有事青年節–積木世代」500 輯團隊 在地專案經理
+            <ul>
+              <li>嘉義市政府都發處「共創交疊的城市未來」城市之心願景館｜策展統籌、計畫統籌</li>
+              <li>嘉義市政府都發處「嘉義之星願景館策展暨活動規劃」｜策展人、活動統籌</li>
+              <li>嘉義市政府文化局「2025 嘉義古蹟日｜祀神 Town」｜策劃統籌</li>
+              <li>嘉義市政府文化局「打開嘉義街角館」義興佳釀｜策展人</li>
+              <li>台北當代藝術博覽會 Taipei Dangdai Art and Ideas｜UBS 瑞銀貴賓導覽</li>
+              <li>清華大學「我獨自升級－藝術實踐」講座｜講師</li>
+              <li>新北美術館「再自然不過的事」均勻製作劉致宏藝術家作品｜展覽協力</li>
+              <li>《新活水》issue 49、50 專題攝影（嘉義輪普、虎爺）</li>
+            </ul>
           </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-year">2020 – 2023</div>
-          <div class="timeline-role">嘉義市立美術館</div>
+        <!-- 2024 -->
+        <div class="timeline-item" data-cat="curate exhibit lecture">
+          <div class="timeline-meta">
+            <span class="timeline-year">2024</span>
+            <span class="timeline-badge">策展 / 美術館協力 / 走讀</span>
+          </div>
+          <div class="timeline-role">美術館展覽協力、空間改造與公共藝術</div>
           <div class="timeline-desc">
-            ・行銷專員 / 專案專員<br>
-            ・2020 嘉義市立美術館首檔開館展覽專案執行<br>
-            ・展覽導覽規劃、員工導覽培訓、社群媒體經營與跨媒體宣傳資料彙整
+            <ul>
+              <li>臺南市美術館展覽協力：「版畫浪潮｜台南國際版畫展」、「南國花園–蘇世雄紀念展」、「藝術是自由的力量」、「沃克、海怪、炮火與他們：熱蘭遮堡400年」</li>
+              <li>富邦美術館展覽協力：「新宮晉：宇宙–風之旅人」、西班牙藝術家 Jaume Plensa 公共藝術執行協力</li>
+              <li>臺南 400 農漁地景藝術節｜莊志維《看起來也甜甜》蕭壟文創園區公共藝術裝置安裝協力</li>
+              <li>嘉義市立美術館：113年導覽行銷委託服務案（計畫主持人）、《黑金段上的藝術夢》紀錄片（製片、幕後側拍）、「移動觀察者」均勻製作（走讀講師＆作品維護）</li>
+              <li>嘉義街角館計畫「東寶畫廊空間改造計畫」｜統籌、策展</li>
+              <li>台南老爺行旅「做一塊香蕉蛋糕」台青蕉 × 小高潮色計事務所｜策展統籌</li>
+              <li>東京食品展「王西勢」展位藝術陳列設計｜藝術總監</li>
+              <li>「在縫隙中拾起」聯展｜福利社 FreeS Art Space，台北</li>
+              <li>台北當代藝術博覽會｜UBS 貴賓導覽、活動執行</li>
+              <li>舊嘉義東門派出所「東門町 1923」開幕展｜貴賓導覽</li>
+              <li>阿里山林鐵 42 號隧道竣工典禮｜活動執行、攝影</li>
+            </ul>
           </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-year">2021</div>
-          <div class="timeline-role">設計展策劃與公共藝術媒體統籌</div>
+        <!-- 2023 -->
+        <div class="timeline-item" data-cat="curate exhibit lecture">
+          <div class="timeline-meta">
+            <span class="timeline-year">2023</span>
+            <span class="timeline-badge">策展 / 街區走讀</span>
+          </div>
+          <div class="timeline-role">圖書館群策展、美街圖鑑與文化培力</div>
           <div class="timeline-desc">
-            ・2021 台灣設計展「現域」展覽策劃專案經理<br>
-            ・2021「東市有青」展覽策劃與市集統籌<br>
-            ・「雲嘉嘉營視覺藝術連線串連展」專案經理兼媒體公關統籌<br>
-            ・新竹台灣電力公司公共藝術展覽 媒體策略統籌
+            <ul>
+              <li>嘉義市文化局「來嘉出走－嘉義市城市圖書館群」｜專案經理及展覽策劃</li>
+              <li>嘉義市政府「嘉義美街圖鑑 LOST & FOUND」｜走讀講師</li>
+              <li>嘉義市立美術館：112年導覽行銷委託服務案計畫主持人、「佇上課摃鐘的時陣來去玲瑯踅」走讀講師</li>
+              <li>臺南市美術館展覽協力：「低鳴的山水：在進入繪畫」、「時間眾像：給每個人的歲月景觀」</li>
+              <li>新竹市文化局「台灣應用材料 × 新竹市美術館策展人–培力計畫」｜複審委員</li>
+              <li>第二屆浪漫臺三線藝術季｜志工教育訓練講師</li>
+              <li>「阡陌縱橫的我們」聯展｜阡陌一舍 UNS 旗艦店，高雄</li>
+              <li>112年度嘉義市「舊屋力 10 週年」｜專案攝影</li>
+            </ul>
           </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-year">2018 – 2019</div>
-          <div class="timeline-role">大型藝術季、雙年展與國家級專案</div>
+        <!-- 2022 -->
+        <div class="timeline-item" data-cat="curate lecture">
+          <div class="timeline-meta">
+            <span class="timeline-year">2022</span>
+            <span class="timeline-badge">雙年展 / 設計展 / 藝術島</span>
+          </div>
+          <div class="timeline-role">馬祖國際藝術島、台灣設計展與大專講座</div>
           <div class="timeline-desc">
-            ・2019「浪漫台三線藝術季」藝術家作品攝影紀實<br>
-            ・2018 臺北雙年展「後自然–美術館作為一個生態系統」展覽燈光設計<br>
-            ・2018「南方以南–南迴藝術計畫」法國藝術家作品現地執行<br>
-            ・2018 臺灣燈會在嘉義「光環境燈區」道路光環境策劃統籌與策展人<br>
-            ・2018 國立故宮博物院「新故宮計畫」「博物館友善親子跨界計畫」專案統籌（跨部門與跨館際合作協調）
+            <ul>
+              <li>2022 馬祖國際藝術島「地下工事」｜策展專案經理</li>
+              <li>第二屆有事青年節「積木世代」500 輯團隊｜專案經理</li>
+              <li>2022 台灣設計展＠高雄「青春限動」｜展覽策劃</li>
+              <li>2022 臺灣文博會–嘉義館「摩登時光．大通小城」｜導覽統籌、與談嘉賓</li>
+              <li>臺南設計師週「歡迎光臨，相遇臺南－撥線見物」｜專案協力</li>
+              <li>草率季「小高潮色計事務所」｜展示設計</li>
+              <li>第十屆臺南新藝獎「森林的秘密」加力畫廊｜展覽執行</li>
+              <li>教育部藝術才能專長領域輔導群、亞洲大學、彰化師範大學｜客座講座講師</li>
+              <li>111年嘉義市立美術館導覽行銷委託服務案｜計畫主持人</li>
+            </ul>
           </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-year">2012 – 2017</div>
-          <div class="timeline-role">藝術空間、畫廊負責人與企劃統籌</div>
+        <!-- 2021 -->
+        <div class="timeline-item" data-cat="curate exhibit">
+          <div class="timeline-meta">
+            <span class="timeline-year">2021</span>
+            <span class="timeline-badge">設計展 / 美術館專案</span>
+          </div>
+          <div class="timeline-role">台灣設計展「現域」、跨縣市藝術連線與美術館執行</div>
           <div class="timeline-desc">
-            ・非常廟藝文空間 空間經理 (2016–2017)<br>
-            ・伊日藝術計畫 臺中空間負責人 (2014–2016)<br>
-            ・索卡藝術中心 展覽執行 / 行政助理 (2012–2014)<br>
-            ・2016 On fire Day 滅火器樂團攝影展 企劃統籌<br>
-            ・OURS 專業者都市改革組織 特約攝影<br>
-            ・國美館數位藝術中心 特約設計
+            <ul>
+              <li>2021 台灣設計展在嘉義「現域」展覽｜專案經理</li>
+              <li>2021 台灣設計展在嘉義「家意：以成為家」｜專案協力、專書設計</li>
+              <li>雲嘉嘉營視覺藝術連線串連展「移動聚落」｜專案經理兼媒體公關統籌</li>
+              <li>嘉義東公有市場「東市有青」｜展覽策劃與市集統籌</li>
+              <li>國立臺灣美術館「所在–境與物的前衛藝術 1980–2021」｜展覽執行</li>
+              <li>台北當代藝術館「為了明天的進行式」、「歷史．當代」｜展覽執行</li>
+              <li>臺南市美術館「永聲花 - 無盡的聲音風景」、「堆疊快樂」｜展覽執行</li>
+              <li>白石畫廊台北空間四週年聯展「藝/牆之佮」｜展覽執行</li>
+              <li>新竹台灣電力公司公共藝術案「風承著光」｜媒體策略統籌、行政統籌</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2018 - 2020 -->
+        <div class="timeline-item" data-cat="curate exhibit">
+          <div class="timeline-meta">
+            <span class="timeline-year">2018 – 2020</span>
+            <span class="timeline-badge">台北雙年展 / 故宮 / 燈會統籌</span>
+          </div>
+          <div class="timeline-role">國家級專案、國際雙年展與美術館開館</div>
+          <div class="timeline-desc">
+            <ul>
+              <li>2020 嘉義市立美術館開館首檔展覽「辶反風景」｜展覽執行、導覽專員</li>
+              <li>2019「浪漫臺三線藝術季」未來的昔日（北埔藝術小鎮）｜攝影紀實</li>
+              <li>2018 國立故宮博物院「新故宮計畫」與「博物館友善親子串連行動」記者會暨論壇｜策劃統籌</li>
+              <li>2018 臺灣燈會在嘉義「光環境燈區」｜道路光環境策劃統籌、策展人</li>
+              <li>2018 臺北雙年展「後自然：美術館作為一個生態系統」｜展覽燈光設計</li>
+              <li>2018 南方以南「南迴藝術計畫 Anne-Flore 彩虹隧道」｜展覽執行</li>
+              <li>台北市立美術館「逐步．逐步」、「建築的70%」、「異星系」｜展覽執行</li>
+              <li>國美館「直覺．記憶．原始能量：吳炫三回顧展」、「李仲生與台灣現代藝術發展」｜展覽執行</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2010 - 2017 -->
+        <div class="timeline-item" data-cat="curate exhibit">
+          <div class="timeline-meta">
+            <span class="timeline-year">2010 – 2017</span>
+            <span class="timeline-badge">藝術空間經理 / 創作個展</span>
+          </div>
+          <div class="timeline-role">畫廊與藝術空間管理、早年策展與創作發表</div>
+          <div class="timeline-desc">
+            <ul>
+              <li>非常廟藝文空間 空間經理 (2016–2017)；《非常時期 1997 - 2017》專書編輯</li>
+              <li>伊日藝術計畫 臺中空間負責人 (2014–2016)</li>
+              <li>索卡藝術中心 展覽執行 / 行政助理 (2012–2014)</li>
+              <li>2016「花艸紀事」創作個展｜想貳藝文空間，中壢</li>
+              <li>2016 On fire Day 滅火器樂團攝影展｜桃園國際棒球場｜策劃統籌</li>
+              <li>2012 臺北藝術博覽會、府城藝術博覽會（中華民國畫廊協會）｜專案執行</li>
+              <li>2011「韓國‧日本‧台灣 Design」文化交流展｜首爾</li>
+              <li>2010 台北市立美術館「2010台北雙年展｜Christian Jankowski 徵館長啟事計劃」</li>
+              <li>2010「透‧PENETRATE」創作個展｜臺南大學慶中街藝術特區</li>
+              <li>2010 嘉義鐵道藝術村「大紅門」聯展｜策展人</li>
+            </ul>
           </div>
         </div>
 
@@ -348,25 +559,53 @@
 
     <!-- Institutional Collaborations -->
     <section>
-      <div class="section-title">Institutional Collaboration Experience</div>
+      <div class="section-title">Institutional Collaboration Experience 合作藝文機構</div>
       <div class="institutions-grid">
+        <div class="inst-card">國立故宮博物院</div>
         <div class="inst-card">臺北市立美術館</div>
         <div class="inst-card">國立臺灣美術館</div>
         <div class="inst-card">臺北當代藝術館</div>
-        <div class="inst-card">嘉義市立美術館</div>
         <div class="inst-card">臺南市美術館</div>
-        <div class="inst-card">臺東美術館</div>
+        <div class="inst-card">嘉義市立美術館</div>
+        <div class="inst-card">新北美術館</div>
+        <div class="inst-card">富邦美術館</div>
         <div class="inst-card">新竹市美術館</div>
-        <div class="inst-card">國立故宮博物院</div>
+        <div class="inst-card">臺東美術館</div>
+        <div class="inst-card">毓繡美術館</div>
+        <div class="inst-card">中華民國畫廊協會</div>
       </div>
     </section>
 
     <!-- Contact & Footer -->
     <footer>
-      <p style="margin-bottom: 14px;">展覽策劃・專案統籌・空間設計・跨領域合作諮詢</p>
+      <p style="margin-bottom: 14px;">展覽策劃・專案統籌・空間設計・文化走讀・跨領域合作</p>
       <a href="mailto:your-email@example.com" class="contact-btn">聯繫 Maison-Ho</a>
       <p style="font-size: 0.75rem; color: #505663;">© Maison-Ho. All rights reserved.</p>
     </footer>
   </div>
+
+  <!-- Filter Script -->
+  <script>
+    function filterItems(category) {
+      const items = document.querySelectorAll('.timeline-item');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      items.forEach(item => {
+        if (category === 'all') {
+          item.classList.remove('hidden');
+        } else {
+          const cats = item.getAttribute('data-cat') || '';
+          if (cats.includes(category)) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>
